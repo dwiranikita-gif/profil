@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikita Dwi Rahmadani — Front-End Developer</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F2E6EE;
+    --paper-2:#E5D2E4;
+    --ink:#2B201A;
+    --ink-soft:#6E5B4C;
+    --purple:#6C3FA3;
+    --purple-soft:#E9D9F2;
+    --brown:#8A5A34;
+    --brown-soft:#F0DFC9;
+    --line:#DCC6DA;
+  }
+
+  ::selection{ background:var(--brown); color:var(--paper); }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  h1, h2, h3, .display-font{
+    font-family:'Fraunces', serif;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+  }
+
+  a{ color:var(--brown); text-decoration:none; }
+  a:hover{ color:var(--ink); }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar-custom{
+    background:rgba(242,230,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding-top:1rem;
+    padding-bottom:1rem;
+  }
+  .navbar-brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--ink) !important;
+  }
+  .navbar-brand span{ color:var(--purple); }
+  .nav-link{
+    color:var(--ink-soft) !important;
+    font-weight:500;
+    font-size:0.95rem;
+    margin-left:1.25rem;
+  }
+  .nav-link:hover{ color:var(--purple) !important; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:9rem;
+    padding-bottom:6rem;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, var(--purple-soft) 0%, var(--paper) 55%);
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4.2rem);
+    font-weight:600;
+    font-style:italic;
+    line-height:1.05;
+    margin-bottom:0.75rem;
+  }
+  .hero .role{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--brown);
+    font-size:1rem;
+    margin-bottom:1.5rem;
+  }
+  .hero p.lead-text{
+    color:var(--ink-soft);
+    max-width:34rem;
+    font-size:1.08rem;
+  }
+  .btn-ink{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:2px;
+    padding:0.65rem 1.5rem;
+    font-weight:500;
+    border:1px solid var(--ink);
+  }
+  .btn-ink:hover{ background:var(--purple); border-color:var(--purple); color:#fff; }
+  .btn-outline-ink{
+    border:1px solid var(--brown);
+    color:var(--brown);
+    border-radius:2px;
+    padding:0.65rem 1.5rem;
+    font-weight:500;
+  }
+  .btn-outline-ink:hover{ background:var(--brown); border-color:var(--brown); color:var(--paper); }
+
+  .hero-facts{ margin-top:2rem; max-width:34rem; }
+
+  section{ padding:5.5rem 0; }
+  .section-title{
+    font-size:2rem;
+    font-weight:600;
+    margin-bottom:0.5rem;
+    position:relative;
+    padding-left:1rem;
+    border-left:4px solid var(--purple);
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    max-width:36rem;
+    margin-bottom:2.75rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  #tentang{ border-bottom:1px solid var(--line); }
+  .avatar-frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:var(--purple-soft);
+    border:1px solid var(--line);
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:4rem;
+    font-style:italic;
+    color:var(--purple);
+    object-fit:cover;
+  }
+  dl.facts{ margin-top:2rem; }
+  dl.facts div{
+    display:flex;
+    justify-content:space-between;
+    padding:0.7rem 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.95rem;
+  }
+  dl.facts dt{ color:var(--ink-soft); font-weight:500; }
+  dl.facts dd{ margin:0; font-weight:500; }
+
+  /* ---------- SKILLS ---------- */
+  #keahlian{ border-bottom:1px solid var(--line); background:var(--paper-2); }
+  .skill-group h3{
+    font-size:1.05rem;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    margin-bottom:1rem;
+  }
+  .pill{
+    display:inline-block;
+    border:1px solid var(--brown);
+    color:var(--brown);
+    border-radius:2px;
+    padding:0.35rem 0.85rem;
+    font-size:0.85rem;
+    margin:0 0.5rem 0.5rem 0;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:1.75rem;
+    height:100%;
+    background:var(--paper);
+    transition:border-color 0.2s ease;
+  }
+  .project-card:hover{ border-color:var(--purple); }
+  .project-card .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--brown);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .project-card h3{
+    font-size:1.2rem;
+    margin:0.5rem 0 0.6rem;
+  }
+  .project-card p{ color:var(--ink-soft); font-size:0.92rem; }
+  .project-card .go{
+    font-size:0.88rem;
+    font-weight:500;
+    color:var(--purple);
+  }
+  .project-card .go:hover{ color:var(--ink); }
+  .project-card.placeholder{
+    border-style:dashed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- CONTACT ---------- */
+  #kontak{ padding-bottom:4rem; }
+  .contact-list a{
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+    padding:0.75rem 0;
+    border-bottom:1px solid var(--line);
+    font-size:1rem;
+  }
+  .contact-list a:hover{ color:var(--purple); }
+  .contact-list i{ color:var(--brown); font-size:1.1rem; width:1.3rem; }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:2rem 0;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+
+  @media (max-width:767px){
+    section{ padding:3.5rem 0; }
+    .hero{ padding-top:7rem; padding-bottom:3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-md navbar-custom fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Nikita<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#keahlian">Keahlian</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pengalaman">Pengalaman</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-4">
+        <img src="foto-saya.jpeg" alt="Foto Nikita Dwi Rahmadani" class="avatar-frame">
+      </div>
+      <div class="col-lg-8">
+        <h1>Nikita Dwi Rahmadani</h1>
+        <p class="lead-text">
+          Saya membangun website yang rapi, ringan, dan enak dipakai —
+          mulai dari halaman profil sederhana sampai website usaha dengan
+          konten yang berubah-ubah. Fokus saya: struktur kode yang jelas
+          dan tampilan yang tidak berlebihan.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#proyek" class="btn btn-ink">Lihat Proyek</a>
+          <a href="#kontak" class="btn btn-outline-ink">Hubungi Saya</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TENTANG ============ -->
+<section id="tentang">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p class="section-sub" style="margin-bottom:1.25rem;">
+          Perkenalkan, saya Nikita Dwi Rahmadani — siswi SMK jurusan Rekayasa Perangkat
+          Lunak di SMKN Takeran yang sedang menekuni pengembangan web.
+          Saya suka mengubah rancangan tampilan menjadi halaman yang
+          benar-benar bisa dipakai, dengan kode yang tersusun rapi dan
+          mudah dikembangkan lagi ke depannya.
+        </p>
+        <p style="color:var(--ink-soft); max-width:38rem;">
+          Saat ini saya sedang mengerjakan tugas
+          sekolah sebagai web developer, salah satunya adalah website usaha
+          yang tautannya bisa dilihat pada bagian Proyek di bawah.
+        </p>
+        <h3 style="font-size:1.15rem; margin-top:2.5rem; margin-bottom:1rem;">Perjalanan Pendidikan Saya</h3>
+        <div class="education-list" style="max-width:38rem;">
+          <div style="padding:0.9rem 0; border-bottom:1px solid var(--line);">
+            <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+              <span style="font-weight:600;">1. SDIT Nurul Falah</span>
+              <span class="mono" style="font-size:0.85rem; color:var(--brown);">2015 &ndash; 2019</span>
+            </div>
+            <div style="color:var(--ink-soft); font-size:0.88rem; margin-top:0.25rem;">
+              Jl. Dewa Kembar, RT.2/RW.1 (Komplek TNI AL), Semper Timur, Cilincing, Jakarta Utara
+            </div>
+          </div>
+          <div style="padding:0.9rem 0; border-bottom:1px solid var(--line);">
+            <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+              <span style="font-weight:600;">2. SDN Cibubur 04</span>
+              <span class="mono" style="font-size:0.85rem; color:var(--brown);">2019 &ndash; 2021</span>
+            </div>
+            <div style="color:var(--ink-soft); font-size:0.88rem; margin-top:0.25rem;">
+              Jl. Cibubur I No.75 3, RT.3/RW.1, Cibubur, Kec. Ciracas, Kota Jakarta Timur
+            </div>
+          </div>
+          <div style="padding:0.9rem 0; border-bottom:1px solid var(--line);">
+            <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+              <span style="font-weight:600;">3. SMP Negeri 1 Nguntoronadi</span>
+              <span class="mono" style="font-size:0.85rem; color:var(--brown);">2021 &ndash; 2024</span>
+            </div>
+            <div style="color:var(--ink-soft); font-size:0.88rem; margin-top:0.25rem;">
+              Purworejo, Nguntoronadi, Ngiwen, Purworejo, Magetan, Kabupaten Magetan, Jawa Timur
+            </div>
+          </div>
+          <div style="padding:0.9rem 0; border-bottom:1px solid var(--line);">
+            <div class="d-flex justify-content-between align-items-baseline flex-wrap">
+              <span style="font-weight:600;">4. SMK Negeri 1 Takeran</span>
+              <span class="mono" style="font-size:0.85rem; color:var(--brown);">2024 &ndash; Sekarang</span>
+            </div>
+            <div style="color:var(--ink-soft); font-size:0.88rem; margin-top:0.25rem;">
+              Jl. Raya Takeran, Bendo, Kuwonharjo, Kec. Takeran, Kabupaten Magetan, Jawa Timur
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEAHLIAN ============ -->
+<section id="keahlian">
+  <div class="container">
+    <h2 class="section-title">Keahlian</h2>
+    <p class="section-sub">Sebagai siswa SMK jurusan Rekayasa Perangkat Lunak, saya mendapatkan keahlian di atas dari kombinasi materi sekolah dan latihan mandiri. Saya masih dalam tahap belajar, dan terus berusaha memperdalam ilmu di bidang pengembangan web.</p>
+    <div class="row gy-5">
+      <div class="col-md-4 skill-group">
+        <h3>Bahasa &amp; Markup</h3>
+        <div class="pill">HTML</div>
+        <div class="pill">CSS Dasar</div>
+        <div class="pill">PHP Dasar</div>
+      </div>
+      <div class="col-md-4 skill-group">
+        <h3>Tools</h3>
+        <div class="pill">VS Code</div>
+      </div>
+      <div class="col-md-4 skill-group">
+        <h3>Cara Kerja</h3>
+        <div class="pill">Menulis kode yang rapi &amp; terstruktur</div>
+        <div class="pill">Menerapkan desain responsif di berbagai layar</div>
+        <div class="pill">Mengatur waktu pengerjaan tugas</div>
+        <div class="pill">Berkomunikasi &amp; kerja sama dalam tim</div>
+        <div class="pill">Teliti dalam mengecek hasil pekerjaan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PENGALAMAN ============ -->
+<section id="pengalaman" style="border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2 class="section-title">Pengalaman</h2>
+    <p class="section-sub">Pengalaman kerja lapangan yang pernah saya jalani selama masa sekolah.</p>
+    <div class="project-card" style="max-width:44rem;">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div>
+          <div class="tag">Praktik Kerja Lapangan (PKL)</div>
+          <h3>PT. Yupi Indo Jelly Gum &mdash; Karanganyar</h3>
+        </div>
+        <span class="mono" style="font-size:0.85rem; color:var(--brown); white-space:nowrap;">6 bulan</span>
+      </div>
+      <p style="margin-top:0.75rem;">
+        Ditempatkan di bagian mesin pengemasan (packaging), membantu proses
+        operasional produksi permen Yupi selama enam bulan. Meski di luar
+        bidang pengembangan web, pengalaman ini memberi saya pemahaman
+        langsung tentang cara kerja industri manufaktur skala besar serta
+        pentingnya kedisiplinan, ketelitian, dan kerja sama tim.
+      </p>
+      <ul style="color:var(--ink-soft); font-size:0.92rem; padding-left:1.1rem; margin-top:0.75rem;">
+        <li>Mengoperasikan dan memantau jalannya mesin pengemasan sesuai SOP produksi.</li>
+        <li>Melakukan pengecekan kualitas kemasan agar sesuai standar perusahaan.</li>
+        <li>Terbiasa bekerja dengan target dan ritme produksi yang ketat serta disiplin waktu.</li>
+        <li>Belajar bekerja dalam tim lintas shift di lingkungan industri nyata.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROYEK ============ -->
+<section id="proyek">
+  <div class="container">
+    <h2 class="section-title">Proyek</h2>
+    <p class="section-sub">Beberapa pekerjaan yang sedang dan telah saya kerjakan.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card">
+          <div class="tag">Website Usaha</div>
+          <h3>Toko Rajut Suri</h3>
+          <p>Website dinamis untuk usaha rajutan — katalog produk, halaman detail, dan info pemesanan.</p>
+
+          <a href="#" class="go">Kunjungi website &rarr;</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card">
+          <div class="tag">Latihan</div>
+          <h3>Landing Page Sederhana</h3>
+          <p>Latihan tata letak dan tipografi menggunakan HTML dan Bootstrap murni.</p>
+          <a href="#" class="go">Lihat detail &rarr;</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="project-card placeholder">
+          <p class="m-0">Proyek berikutnya akan muncul di sini</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAK ============ -->
+<section id="kontak">
+  <div class="container">
+    <h2 class="section-title">Kontak</h2>
+    <p class="section-sub">Ada proyek atau ingin berdiskusi? Silakan hubungi lewat salah satu kanal berikut.</p>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="contact-list">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dwiranikita@gmail.com" target="_blank" rel="noopener"><i class="bi bi-envelope"></i> dwiranikita@gmail.com</a>
+          <a href="https://wa.me/62895710706622" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> +62 895-7107-06622</a>
+          <a href="https://instagram.com/nikitardn" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> @nikitardn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Nikita Dwi Rahmadani. Dibangun dengan HTML &amp; Bootstrap.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
